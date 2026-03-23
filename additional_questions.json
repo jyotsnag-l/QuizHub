@@ -1,0 +1,246 @@
+{
+  "c_programming": [
+    {
+      "id": 1,
+      "question": "What is the output of this code? int x = 5; printf(\"%d\", ++x * x++);",
+      "options": [
+        "25",
+        "30",
+        "35",
+        "Undefined behavior"
+      ],
+      "correct": 3,
+      "explanation": "This involves undefined behavior due to modifying x multiple times between sequence points."
+    },
+    {
+      "id": 2,
+      "question": "In C, what is the time complexity of searching in a hash table with good hash function?",
+      "options": [
+        "O(1) average",
+        "O(log n)",
+        "O(n)",
+        "O(n\u00b2)"
+      ],
+      "correct": 0,
+      "explanation": "Hash tables provide O(1) average case lookup time with a good hash function and proper collision handling."
+    },
+    {
+      "id": 3,
+      "question": "What does the 'volatile' keyword in C prevent?",
+      "options": [
+        "Memory leaks",
+        "Compiler optimizations",
+        "Segmentation faults",
+        "Stack overflow"
+      ],
+      "correct": 1,
+      "explanation": "The volatile keyword tells the compiler not to optimize code involving the variable, as its value may change unexpectedly."
+    },
+    {
+      "id": 4,
+      "question": "In a binary search tree, what is the worst-case time complexity for insertion?",
+      "options": [
+        "O(1)",
+        "O(log n)",
+        "O(n)",
+        "O(n log n)"
+      ],
+      "correct": 2,
+      "explanation": "In the worst case (degenerate tree), BST insertion becomes O(n) when the tree resembles a linked list."
+    },
+    {
+      "id": 5,
+      "question": "What is the purpose of the 'restrict' keyword in C99?",
+      "options": [
+        "Memory allocation",
+        "Pointer aliasing optimization",
+        "Access control",
+        "Type safety"
+      ],
+      "correct": 1,
+      "explanation": "The restrict keyword is a hint to the compiler that the pointer is the only way to access the object, enabling optimizations."
+    },
+    {
+      "id": 6,
+      "question": "Which sorting algorithm has the best worst-case time complexity?",
+      "options": [
+        "Quick Sort",
+        "Merge Sort",
+        "Bubble Sort",
+        "Selection Sort"
+      ],
+      "correct": 1,
+      "explanation": "Merge Sort has O(n log n) worst-case time complexity, while Quick Sort can degrade to O(n\u00b2)."
+    },
+    {
+      "id": 7,
+      "question": "What is a dangling pointer in C?",
+      "options": [
+        "Uninitialized pointer",
+        "Pointer to freed memory",
+        "Null pointer",
+        "Array pointer"
+      ],
+      "correct": 1,
+      "explanation": "A dangling pointer points to memory that has been freed or deallocated but the pointer still holds the address."
+    },
+    {
+      "id": 8,
+      "question": "In C, what is the difference between malloc() and calloc()?",
+      "options": [
+        "No difference",
+        "calloc initializes to zero",
+        "malloc is faster",
+        "calloc only for arrays"
+      ],
+      "correct": 1,
+      "explanation": "calloc() initializes allocated memory to zero, while malloc() leaves memory uninitialized."
+    },
+    {
+      "id": 9,
+      "question": "What is the space complexity of merge sort?",
+      "options": [
+        "O(1)",
+        "O(log n)",
+        "O(n)",
+        "O(n\u00b2)"
+      ],
+      "correct": 2,
+      "explanation": "Merge sort requires O(n) additional space for the temporary arrays used in the merging process."
+    },
+    {
+      "id": 10,
+      "question": "Which data structure is best for implementing LRU cache?",
+      "options": [
+        "Array",
+        "Stack",
+        "Hash Map + Doubly Linked List",
+        "Binary Tree"
+      ],
+      "correct": 2,
+      "explanation": "LRU cache requires O(1) access and update, achieved by combining hash map for lookup and doubly linked list for ordering."
+    }
+  ],
+  "python": [
+    {
+      "id": 1,
+      "question": "What is the output of: [x**2 for x in range(3) if x % 2]?",
+      "options": [
+        "[0, 1, 4]",
+        "[1]",
+        "[1, 4]",
+        "[0, 4]"
+      ],
+      "correct": 1,
+      "explanation": "The condition 'x % 2' is true only for x=1 (odd numbers), so only 1\u00b2 = 1 is included."
+    },
+    {
+      "id": 2,
+      "question": "What is a metaclass in Python?",
+      "options": [
+        "A class instance",
+        "A class that creates classes",
+        "A parent class",
+        "An abstract class"
+      ],
+      "correct": 1,
+      "explanation": "A metaclass is a class whose instances are classes. It defines how classes are constructed."
+    },
+    {
+      "id": 3,
+      "question": "What does the 'yield' keyword do in Python?",
+      "options": [
+        "Returns a value",
+        "Creates a generator",
+        "Pauses execution",
+        "Both B and C"
+      ],
+      "correct": 3,
+      "explanation": "The yield keyword creates a generator function and pauses execution, allowing the function to resume later."
+    },
+    {
+      "id": 4,
+      "question": "What is the time complexity of list.append() in Python?",
+      "options": [
+        "O(1) amortized",
+        "O(log n)",
+        "O(n)",
+        "O(n\u00b2)"
+      ],
+      "correct": 0,
+      "explanation": "List append is O(1) amortized due to dynamic array resizing with geometric growth."
+    },
+    {
+      "id": 5,
+      "question": "What is a decorator in Python?",
+      "options": [
+        "Design pattern",
+        "Function modifier",
+        "Both A and B",
+        "Class inheritance"
+      ],
+      "correct": 2,
+      "explanation": "Decorators are both a design pattern and a function modifier that wraps another function to extend its behavior."
+    },
+    {
+      "id": 6,
+      "question": "What is the difference between 'is' and '==' in Python?",
+      "options": [
+        "No difference",
+        "'is' checks identity, '==' checks equality",
+        "'is' is faster",
+        "'==' is deprecated"
+      ],
+      "correct": 1,
+      "explanation": "'is' checks if two variables point to the same object in memory, while '==' checks if values are equal."
+    },
+    {
+      "id": 7,
+      "question": "What is the Global Interpreter Lock (GIL) in Python?",
+      "options": [
+        "Security feature",
+        "Memory manager",
+        "Thread synchronization mechanism",
+        "Import system"
+      ],
+      "correct": 2,
+      "explanation": "GIL is a mutex that protects access to Python objects, preventing multiple threads from executing Python bytecode simultaneously."
+    },
+    {
+      "id": 8,
+      "question": "What is monkey patching in Python?",
+      "options": [
+        "Bug fixing",
+        "Dynamic modification of classes/modules",
+        "Performance optimization",
+        "Code documentation"
+      ],
+      "correct": 1,
+      "explanation": "Monkey patching is dynamically modifying a class or module at runtime to change or extend its behavior."
+    },
+    {
+      "id": 9,
+      "question": "What is the purpose of __slots__ in Python?",
+      "options": [
+        "Define methods",
+        "Restrict attributes and save memory",
+        "Create properties",
+        "Handle exceptions"
+      ],
+      "correct": 1,
+      "explanation": "__slots__ restricts the attributes that instances can have and saves memory by avoiding __dict__ creation."
+    },
+    {
+      "id": 10,
+      "question": "What is a context manager in Python?",
+      "options": [
+        "Memory manager",
+        "Object that defines runtime context",
+        "Thread manager",
+        "Exception handler"
+      ],
+      "correct": 1,
+      "explanation": "A context manager defines the runtime context for executing a block of code, typically using 'with' statement."
+    }
+  ]
+}

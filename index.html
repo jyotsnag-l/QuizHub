@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Confetti Container for Animations -->
+    <div id="confetti-container" class="confetti-container"></div>
+    
+    <!-- Home Screen -->
+    <div id="homeScreen" class="screen active">
+        <div class="container">
+            <div class="hero-section">
+                <h1 class="hero-title">Quiz Hub</h1>
+                <p class="hero-subtitle">Test your knowledge with challenging questions across multiple subjects</p>
+            </div>
+            
+            <div class="subjects-grid">
+                <div class="subject-card" data-subject="mathematics">
+                    <div class="subject-icon">📐</div>
+                    <h3>Mathematics</h3>
+                    <p>Calculus, Linear Algebra, Statistics</p>
+                </div>
+                <div class="subject-card" data-subject="science">
+                    <div class="subject-icon">🧪</div>
+                    <h3>Science</h3>
+                    <p>Chemistry, Physics, Biology</p>
+                </div>
+                <div class="subject-card" data-subject="history">
+                    <div class="subject-icon">📚</div>
+                    <h3>History</h3>
+                    <p>World Events, Wars, Treaties</p>
+                </div>
+                <div class="subject-card" data-subject="english">
+                    <div class="subject-icon">✍️</div>
+                    <h3>English Grammar</h3>
+                    <p>Syntax, Rhetoric, Linguistics</p>
+                </div>
+                <div class="subject-card" data-subject="c_programming">
+                    <div class="subject-icon">💻</div>
+                    <h3>C Programming</h3>
+                    <p>Data Structures, Algorithms, Memory</p>
+                </div>
+                <div class="subject-card" data-subject="python">
+                    <div class="subject-icon">🐍</div>
+                    <h3>Python Programming</h3>
+                    <p>Advanced Concepts, Libraries, OOP</p>
+                </div>
+            </div>
+            
+            <div class="game-modes">
+                <button class="btn btn--primary mode-btn" id="singlePlayerBtn">Single Player</button>
+                <button class="btn btn--secondary mode-btn" id="multiplayerBtn">Multiplayer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Multiplayer Setup Screen -->
+    <div id="multiplayerScreen" class="screen">
+        <div class="container">
+            <h2>Multiplayer Setup</h2>
+            <div class="multiplayer-options">
+                <div class="option-card">
+                    <h3>Create Room</h3>
+                    <p>Start a new quiz room and invite friends</p>
+                    <button class="btn btn--primary" id="createRoomBtn">Create Room</button>
+                </div>
+                <div class="option-card">
+                    <h3>Join Room</h3>
+                    <p>Enter a room code to join an existing game</p>
+                    <input type="text" id="roomCodeInput" placeholder="Enter room code" class="form-control">
+                    <button class="btn btn--secondary" id="joinRoomBtn">Join Room</button>
+                </div>
+            </div>
+            <button class="btn btn--outline back-btn" id="backToHomeBtn">← Back to Home</button>
+        </div>
+    </div>
+
+    <!-- Room Screen -->
+    <div id="roomScreen" class="screen">
+        <div class="container">
+            <div class="room-info">
+                <h2>Quiz Room</h2>
+                <div class="room-details">
+                    <p><strong>Room Code:</strong> <span id="displayRoomCode"></span></p>
+                    <p><strong>Share Link:</strong> <input type="text" id="shareLink" class="form-control" readonly></p>
+                    <button class="btn btn--sm" id="copyLinkBtn">Copy Link</button>
+                </div>
+            </div>
+            
+            <div class="players-section">
+                <h3>Players in Room</h3>
+                <div id="playersList" class="players-list"></div>
+            </div>
+            
+            <div class="room-actions">
+                <button class="btn btn--primary" id="startQuizBtn">Start Quiz</button>
+                <button class="btn btn--outline" id="leaveRoomBtn">Leave Room</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Screen -->
+    <div id="quizScreen" class="screen">
+        <div class="container">
+            <div class="quiz-header">
+                <div class="progress-info">
+                    <span id="questionCounter">Question 1 of 10</span>
+                    <span id="subjectDisplay"></span>
+                </div>
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+                <div id="multiplayerScores" class="multiplayer-scores hidden"></div>
+            </div>
+            
+            <div class="question-card" id="questionCard">
+                <h2 id="questionText"></h2>
+                <div id="optionsContainer" class="options-container"></div>
+                
+                <!-- Feedback animations -->
+                <div id="feedbackMessage" class="feedback-message-overlay hidden">
+                    <div class="feedback-content">
+                        <div class="feedback-icon"></div>
+                        <div class="feedback-text"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quiz-actions">
+                <button class="btn btn--primary" id="nextQuestionBtn" disabled>Next Question</button>
+                <div class="quiz-info">
+                    <span id="scoreDisplay">Score: 0</span>
+                    <span id="correctCount">Correct: 0</span>
+                    <span id="wrongCount">Wrong: 0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="resultsScreen" class="screen">
+        <div class="container">
+            <div class="results-header">
+                <h2>Quiz Complete!</h2>
+                <div class="final-score">
+                    <div class="score-circle" id="scoreCircle">
+                        <span id="finalScorePercent">0%</span>
+                    </div>
+                    <div id="gradeDisplay" class="grade-display"></div>
+                    <div id="achievementBadge" class="achievement-badge hidden"></div>
+                </div>
+            </div>
+            
+            <div class="results-details">
+                <div class="stat-card">
+                    <h3 id="finalScore">0/10</h3>
+                    <p>Total Score</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="finalCorrect">0</h3>
+                    <p>Correct Answers</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="finalWrong">0</h3>
+                    <p>Wrong Answers</p>
+                </div>
+            </div>
+            
+            <div id="multiplayerRanking" class="multiplayer-ranking hidden">
+                <h3>Final Rankings</h3>
+                <div id="rankingList" class="ranking-list"></div>
+            </div>
+            
+            <div class="results-actions">
+                <button class="btn btn--primary" id="playAgainBtn">Play Again</button>
+                <button class="btn btn--outline" id="returnHomeBtn">Return to Home</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="screen">
+        <div class="container">
+            <div class="loading-content">
+                <div class="loading-spinner"></div>
+                <p id="loadingText">Loading...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
